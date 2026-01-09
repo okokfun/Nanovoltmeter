@@ -37,7 +37,6 @@
 *        Clocked by TIM4
 *        Generates interrupt at UE to reset index counter
 *        ISR processes data, triggers output via UART4
-*	 
 */
 
 void enable_timer(TIM_TypeDef * tim);
