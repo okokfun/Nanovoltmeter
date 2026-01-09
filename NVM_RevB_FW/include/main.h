@@ -4,7 +4,6 @@
 	*
 	*/
 
-
 #ifndef MAIN_H_
 #define MAIN_H_
 
@@ -27,14 +26,10 @@
 #define TASK_FLAG_PROCESS_INPUT			(1U << 2)
 #define TASK_FLAG_SEND_DATA				(1U << 3)
 
-
 extern volatile uint16_t ind, flags;
 
 void nvicInit(void);
 
 void set_relay_defaults(void);
-
-
-
 
 #endif // MAIN_H_
