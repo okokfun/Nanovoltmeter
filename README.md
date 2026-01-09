@@ -57,28 +57,26 @@
 观测记录
 ------------
 
-调制器频率在600-2000Hz范围内较为理想，系统默认设定为1800Hz。在失调校正环路中设置死区是必要的，可防止模拟输出频谱中出现伪影。关键问题在于对低频噪声源（可能来自开关电源(SMPS)，也可能包括60Hz工频干扰）较为敏感。调制频率最高可提升至14.4kHz，但随之而来的前端稳定时间与ADC信号调理电路时耗会占据更大比例的潜在转换时间，从而导致噪声增加。
+调制器频率在600-2000Hz范围内较为理想，系统默认设定为1800Hz。在失调校正环路中设置死区是必要的，可防止模拟输出频谱中出现伪影。关键问题在于对低频噪声源(可能来自开关电源(SMPS)，也可能包括60Hz工频干扰）较为敏感。调制频率最高可提升至14.4kHz，但随之而来的前端稳定时间与ADC信号调理电路时耗会占据更大比例的潜在转换时间，从而导致噪声增加。
 
 <img width="3277" height="2311" alt="NVM B no deadband, 1 LSB inc, offsets" src="https://github.com/user-attachments/assets/7f692774-247d-44a0-b52e-0cfccc16df01" />
-NSD without deadband, showing aliasing of V_os correction loop
+无死区时的噪声谱密度图，显示V_os校正环路引起的混叠现象
 
-The biggest limitation in the utility of the instrument is the considerable increase in noise and change in offset that occurs when something is connected to the front panel. This effect occurs regardless of whether the input relay is measuring an internal short. It seems most likely that the case, which is tied to protective earth via the USB cable shield is shifting in potential relative to circuit ground, and this is capacitively coupling to something sensitive. However, connecting the USB cable through an isolator, which disconnects the shield from PE, actually makes the noise situation worse rather than better. 
+该仪器实用性的最大限制在于：当有设备连接前面板时，噪声会显著增加且偏移电压发生变化。无论输入继电器是否处于内部短路测量状态，该效应都会出现。最可能的原因是：通过USB电缆屏蔽层接保护地的仪器外壳，其电位相对于电路地发生了浮动，并通过容性耦合影响了某些敏感部分。然而，若通过隔离器连接USB电缆(此时屏蔽层与保护地断开)，噪声状况反而会恶化而非改善。
 
-Implementation of a Sinc2 filter improved some apparent aliasing artifacts that were present in the spectrum at very low (<10 mHz) frequencies. Use of a Sinc3 filter did not lead to any noticeable improvents. The flatness of the noise spectrum (with an internal short) to below 1 mHz was very repeatable provided that environmental conditions were suitably stable.
+采用Sinc2滤波器有效改善了频谱中极低频段(<10MHz)存在的明显混叠伪影。而使用Sinc3滤波器并未带来显著改进。在环境条件足够稳定的情况下，噪声频谱平坦度(内部短路时)可重复延伸至1MHz以下。
 
 <img width="3249" height="2311" alt="ShortNoise_LTC6655_sinc1" src="https://github.com/user-attachments/assets/1055977f-d3ce-460c-9226-e360cdb6e724" />
 <img width="3249" height="2311" alt="ShortNoise_LTC6655_sinc2" src="https://github.com/user-attachments/assets/e779fb28-2be0-43f0-8d62-cbfe5655bbc9" />
 
-While the nanovoltmenter has an offset temperature coefficient of <1 nV/K, it does show some sensitivity to changes in the rate of temperature change (i.e., the offset voltage correlates to the second derivative of temperature with respect to time). This makes sense because those changes lead to changes in temperature gradients across the board, which influences parasitic thermocouple behavior at the input. The power supply is also somewhat more efficient at lower input voltages, which leads to reduced heat dissipation as the batteries discharge, influencing the offset. In very long captures, such as the LTC6655 reference example shown below, this leads to a drift of <0.1 nV/h. It is notable that the overall drift in this 100h capture was only about 8 nV despite about 2.5 K fluctuation in input temperature over that time.
+尽管该纳伏表具有小于1nV/K的失调温度系数，但其对温度变化速率仍表现出一定敏感性(即失调电压与温度对时间的二阶导数相关)。这种现象是合理的，因为温度变化速率会改变电路板上的温度梯度分布，进而影响输入端的寄生热电偶效应。此外，电源在较低输入电压下效率略高，导致电池放电时散热减少，这也对失调电压产生影响。在长时间采集过程中(如下方展示的LTC6655基准源示例)，这会引起小于0.1nV/小时的漂移。值得注意的是，在输入温度波动约2.5K的100小时采集周期内，整体漂移仅约8 nV。
 
 <img width="3540" height="2340" alt="LongCapture_LTC6655_0p01SPS_sinc2" src="https://github.com/user-attachments/assets/bc8703da-5e35-4ad9-97cf-4228a2d44c8a" />
 <img width="3540" height="2340" alt="LongCapture_ADR1399_0p01SPS" src="https://github.com/user-attachments/assets/30137af6-4506-4fc8-9191-a88c3c338448" />
 
-The linearity of the amplifier is expected to be quite good as the offset correction loop keeps the input terminals of the frontend amplifier at the same voltage regardless of input. The main source of nonlinearity should be the gain setting resistors, as temperature changes due to increased power dissipation may lead to changes the resistor ratio and the gain of the frontend. To test the linearity of the amplifier, I used a highly accurate source based on an LTZ1000A and DAC11001B with a tested linearity error of <2 ppm and a 200K/20R divider to reduce the output voltage range to 0 to 1 mV. I averaged several 11 point sweeps over this range to obtain a maximum linearity error of 1.5 ppm. The averaging was necessary due the increased noise seen with something plugged in to the front panel. The increased sensitivity of the lower gain +/-20 mV range to external noise sources (probably due to reduced stability of the amplifier at lower gain) meant that determining linearity error for this range was not practical. In all measurements of external sources, I found it was optimal to wrap the test lead around a nanocrystalline toroid, which did reduce noise considerably.
+放大器的线性度预期会相当出色，因为失调校正回路能使前端放大器的输入端电压保持一致，与输入信号无关。非线性的主要来源应为增益设定电阻——功耗增加导致的温度变化可能改变电阻比例及前端增益。为测试放大器线性度，我采用基于LTZ1000A和DAC11001B构建的高精度源(经测试线性误差小于2ppm)，并配合200K/20R分压器将输出电压范围降至0至1mV。通过对该范围内多次11点扫频测量结果取平均，得到最大线性误差为1.5ppm。由于外接设备接入前面板时会引入额外噪声，取平均处理是必要的。较低增益的±20mV量程对外部噪声源更敏感(可能源于放大器在低增益下稳定性降低)，导致该量程的线性度误差评估不具备实际可行性。在所有外部信号源测量中，我发现将测试引线绕在纳米晶磁环上可显著降低噪声，此为最优处理方案。
 
 <img width="2680" height="1569" alt="LinearitySweep" src="https://github.com/user-attachments/assets/795f5279-375e-4419-a274-6ec6c7499851" />
-
-Performance Reductions with External Measurements
 -------------------------------------------------
 
 Taken together, my observations about the difficulty of performing measurements with external sources are difficult to untangle and may point to multiple simultaneous issues. I have collected them here to try to provide some insight into this behavior and possible solutions:
