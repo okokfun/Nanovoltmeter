@@ -1,12 +1,9 @@
 /**
-
 	System Configuration for STM32U575RI
 	Author: Curtis Seizert
 	Updated: 25 Jan 2024
-	
 	*/
 	
-
 /**
   * @brief  System Clock Configuration
   *         The system Clock is configured as follows : 
@@ -54,15 +51,11 @@ typedef struct{
   uint8_t pll2_n;
   uint8_t pll2_r;
   uint8_t pll2_q;
-
 } SysConfig_t;
-
 
 void update_sysfreq(SysConfig_t * sys);
 
 void clock_config(SysConfig_t * sys);
 void enablePeripheralClocks(void);
-
-
 
 #endif // SYS_CONFIG_H_
