@@ -1,5 +1,5 @@
-# Nanovoltmeter
-A low noise nanovoltmeter design files and code
+# 纳伏电压表
+低噪声纳伏表设计文件与代码
 
 The design includes five boards:
 1. The nanovoltmeter main board
