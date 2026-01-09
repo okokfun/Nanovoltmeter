@@ -10,33 +10,33 @@
 * TIM1: Trigger clock using ETR2
 *
 * TIM2: modulator clocks, combined PWM mode
-*      master mode to trigger TIM3, TIM4, and TIM5
+*       master mode to trigger TIM3, TIM4, and TIM5
 *
 * TIM3: demodulator clocks, combined PWM mode
-*				sync to TIM2
+*       sync to TIM2
 *
 * TIM4: ADC CDS clocks, PWM mode
 *
 * TIM5: Trigger to start conversions
-*				ARR = TIM2->ARR / 2, OCR = settling time
-*				OC1REF -> TRG0 -> Triggers TIM8
+*       ARR = TIM2->ARR / 2, OCR = settling time
+*       OC1REF -> TRG0 -> Triggers TIM8
 *	
 * TIM6: GP timer to e.g. time relay pulses
-*				PSC set so 1 count = 1 us
-*				One-pulse mode
+*       PSC set so 1 count = 1 us
+*       One-pulse mode
 *
 * TIM7: GP timer to e.g. time relay pulses, nonblocking
-*				PSC set so 1 count = 1 us
-*				One-pulse mode
+*       PSC set so 1 count = 1 us
+*       One-pulse mode
 *
 * TIM8: AD403x-24 CNV Pin, PWM mode; TIM8->RCR = total number of samples per phase
-*				One pulse mode
-*				Triggered by TIM5
+*       One pulse mode
+*       Triggered by TIM5
 *
 * TIM15: Synchronizes indexing of output data array
-*				Clocked by TIM4
-*				Generates interrupt at UE to reset index counter
-*				ISR processes data, triggers output via UART4
+*        Clocked by TIM4
+*        Generates interrupt at UE to reset index counter
+*        ISR processes data, triggers output via UART4
 *	 
 */
 
