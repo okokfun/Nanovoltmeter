@@ -65,7 +65,7 @@ typedef enum{
 	GAIN_STATE_HI
 }GainState_t;
 
-/// @brief Struct containing the parameters for an acquisition
+// @brief Struct containing the parameters for an acquisition
 typedef struct{
 	AcqConst_t * acq_const;
 	SincFilter_t * sinc;
@@ -127,13 +127,13 @@ typedef enum{
 	BLOCK_SYNC_OVR_ERROR	= 3
 } BlockErr_t;
 
-	// HIGH LEVEL FUNCTIONS
+// HIGH LEVEL FUNCTIONS
 void setup_acquisition(AcqParam_t * acq);
 void start_acquisition(AcqParam_t * acq);
 void pause_acquisition(AcqParam_t * acq);
 void pause_acquisition_diagnostic(AcqParam_t * acq);
 
-	// SWITCH STATE-RELATED FUNCTIONS
+// SWITCH STATE-RELATED FUNCTIONS
 void gpio_mod_clocks(AcqParam_t * acq);
 void gpio_cds_clocks(AcqParam_t * acq);
 void set_mod_phase(AcqParam_t * acq, ModPhase_t phase);
@@ -144,16 +144,16 @@ ModPhase_t get_mod_phase(void);
 CDSPhase_t get_cds_phase(void);
 CDSPhase_t gen_cds_phase(uint16_t p1, uint16_t p2);
 
-	// GAIN-RELATED FUNCTIONS
+// GAIN-RELATED FUNCTIONS
 void set_gain(AcqParam_t * acq, GainState_t gain);
 double get_analog_gain(AcqParam_t * acq);
 float getLSBSize_nV(double gain);
 
-	// NULL COMPENSATION FUNCTIONS
+// NULL COMPENSATION FUNCTIONS
 void set_null(AcqParam_t * acq, double v_avg);
 double subtract_null(AcqParam_t * acq, double v_avg);
 
-	// DATA PROCESSING FUNCTIONS
+// DATA PROCESSING FUNCTIONS
 double get_block_v_avg(AcqParam_t * acq);
 double adc_code_to_volts(AcqParam_t * acq, int64_t code);
 void process_data_cycle(AcqParam_t * acq);
@@ -164,7 +164,7 @@ int64_t get_code_average(const AD403XData_t * data);
 int32_t get_code_offset(const AD403XData_t * data);
 void ad403x_data_update_phase(AD403XData_t * data);
 
-	// MISCELLANEOUS FUNCTIONS
+// MISCELLANEOUS FUNCTIONS
 void queue_dac_write(AD5686Channel_t ch, uint16_t code);
 void set_relay_defaults(void);
 
