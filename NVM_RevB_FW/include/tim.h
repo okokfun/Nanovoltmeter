@@ -10,7 +10,7 @@
 * TIM1: Trigger clock using ETR2
 *
 * TIM2: modulator clocks, combined PWM mode
-*				master mode to trigger TIM3, TIM4, and TIM5
+*  master mode to trigger TIM3, TIM4, and TIM5
 *
 * TIM3: demodulator clocks, combined PWM mode
 *				sync to TIM2
