@@ -21,14 +21,14 @@
 #define TMP117_CFG_HIGH_ALERT_Pos 15U
 #define TMP117_CFG_LOW_ALERT_Pos  14U
 #define TMP117_CFG_DATA_RDY_Pos   13U
-#define TMP117_CFG_EEPROM_BSY_Pos	 12U
-#define TMP117_CFG_MOD_Pos	        10U
+#define TMP117_CFG_EEPROM_BSY_Pos 12U
+#define TMP117_CFG_MOD_Pos        10U
 #define TMP117_CFG_CONV_Pos       7U
 #define TMP117_CFG_AVG_Pos        5U
 #define TMP117_CFG_TNA_Pos        4U
 #define TMP117_CFG_POL_Pos        3U
 #define TMP117_CFG_DRALERT_Pos    2U
-#define TMP117_CFG_SOFT_RESET_Pos	 1U
+#define TMP117_CFG_SOFT_RESET_Pos 1U
 
 #define TMP117_MODE_CONTINUOUS		(0U << TMP117_CFG_MOD_Pos)
 #define TMP117_MODE_SHUTDOWN			(1U << TMP117_CFG_MOD_Pos)
