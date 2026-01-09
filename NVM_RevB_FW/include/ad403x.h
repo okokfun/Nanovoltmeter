@@ -9,7 +9,6 @@
 #include "stm32u5xx.h"
 #include "gpio.h"
 
-
 /* REGISTER ADDRESSES */
 #define AD403X_REG_INTERFACE_CONFIG_A			0x00
 #define AD403X_REG_INTERFACE_CONFIG_B			0x01
@@ -40,7 +39,6 @@
 #define AD403X_REG_PAT3							0x26
 #define AD403X_REG_DIG_DIAG						0x34
 #define AD403X_REG_DIG_ERR						0x35
-
 
 /* INTERFACE_CONFIG_A */
 #define AD403X_CFG_SW_RESET						((1U << 7) | 1U )
