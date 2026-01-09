@@ -28,11 +28,11 @@
 
 此前已构建的输入级概念验证模型显示，其噪声谱密度(NSD)在约1.2 nV/$\sqrt{Hz}$水平保持平坦。在每秒1次采样的条件下，峰峰值噪声约为 15nV。该仪表的温度系数约为1 nV/K，但对温度波动的敏感性较为明显，且电池放电过程中功耗变化导致约 1nV/小时的漂移。此原型机还因输入调制器开关的电荷注入效应存在约 3nA 的偏置电流。本修订版本拟针对这些问题进行如下改进：
 
-1. The main power rails of the board are generated using low noise buck converters (LT8608S) and a Cuk converter on a shielded daughterboard so that the dropout of the on-board LDOs remains consistent through battery discharge
-2. Improved layout reduced sensitivity to temperature changes. The input stage is contained in a shielding enclosure and is surrounded by isolation slots. Additionally, the largest power dissipators have been placed outside this shield on opposite sides.
-3. The input switching is now handled by a low-capacitance quad MOSFET array (PE4140) using gate drive voltages independently generated with a quad DAC. In a model experiment, it has proven feasible to adjust the DAC switching levels and deadtimes to reduce bias current to <5 pA, though I need to do more work to optimize this aspect.
-4. A fast, precision ADC (AD4030-24) now measures the offset error between switching cycles so a 16-bit DAC can control the offset voltage of the input differential amplifier by modulating the channel currents of the input JFETs. In the schematic, the trim range of the DAC is approximately +/-625uV (LSB = 20nV). The low gain of the trimming differential amplifier means the transconductance drops by <1% at the input extremes. This should allow measurement of the trim gain during instrument warmup for single-cycle settling of the control loop.
-5. Digital implementation of the control loop also allows one to turn off autozeroing or run the input switching at very low frequencies to minimize charge injection.
+1. 电路板的主要电源轨采用低噪声降压转换器(LT8608S)与Cuk转换器，并集成在带屏蔽的子板上，以确保板载低压差LDOs在电池放电全程保持稳定的压降裕量
+2. 优化布局设计降低了对温度变化的敏感性。输入级被置于屏蔽外壳内，周围环绕隔离槽。此外，主要的功率耗散元件被安置在屏蔽罩外侧的对向位置。
+3. 输入开关现采用低电容四路MOSFET阵列(PE4140)，其栅极驱动电压由四通道DAC独立产生。模型实验已证明，通过调节DAC开关电平与死区时间，将偏置电流降至<5pA具有可行性，但该方面仍需进一步优化。
+4. 现采用高速精密ADC(AD4030-24)检测开关周期间的偏移误差，通过16位DAC调制输入JFET的沟道电流，从而控制输入差分放大器的偏移电压。根据原理图设计，该DAC的微调范围约为+/-625μV（最小分辨率LSB=20nV）。微调差分放大器的低增益特性，使得其在输入极限条件下的跨导变化率＜1%。这种设计可在仪器预热阶段测量微调增益，实现控制回路的单周期稳定。
+5. 控制回路的数字化实现还允许关闭自动调零功能，或以极低频率运行输入开关，从而最大程度减少电荷注入效应。
 
 Some additional features are:
 1. Footprints for two types of voltage references: an ADR1399 for lowest noise/highest stability and an LTC6655 for lower power consumption
