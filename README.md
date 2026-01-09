@@ -31,17 +31,17 @@
 1. 电路板的主要电源轨采用低噪声降压转换器(LT8608S)与Cuk转换器，并集成在带屏蔽的子板上，以确保板载低压差LDOs在电池放电全程保持稳定的压降裕量
 2. 优化布局设计降低了对温度变化的敏感性。输入级被置于屏蔽外壳内，周围环绕隔离槽。此外，主要的功率耗散元件被安置在屏蔽罩外侧的对向位置。
 3. 输入开关现采用低电容四路MOSFET阵列(PE4140)，其栅极驱动电压由四通道DAC独立产生。模型实验已证明，通过调节DAC开关电平与死区时间，将偏置电流降至<5pA具有可行性，但该方面仍需进一步优化。
-4. 现采用高速精密ADC(AD4030-24)检测开关周期间的偏移误差，通过16位DAC调制输入JFET的沟道电流，从而控制输入差分放大器的偏移电压。根据原理图设计，该DAC的微调范围约为+/-625μV（最小分辨率LSB=20nV）。微调差分放大器的低增益特性，使得其在输入极限条件下的跨导变化率＜1%。这种设计可在仪器预热阶段测量微调增益，实现控制回路的单周期稳定。
+4. 现采用高速精密ADC(AD4030-24)检测开关周期间的偏移误差，通过16位DAC调制输入JFET的沟道电流，从而控制输入差分放大器的偏移电压。根据原理图设计，该DAC的微调范围约为+/-625μV(最小分辨率LSB=20nV)。微调差分放大器的低增益特性，使得其在输入极限条件下的跨导变化率＜1%。这种设计可在仪器预热阶段测量微调增益，实现控制回路的单周期稳定。
 5. 控制回路的数字化实现还允许关闭自动调零功能，或以极低频率运行输入开关，从而最大程度减少电荷注入效应。
 
-Some additional features are:
-1. Footprints for two types of voltage references: an ADR1399 for lowest noise/highest stability and an LTC6655 for lower power consumption
-2. An optically isolated external trigger input for e.g., synchronizing clocking to powerline cycles.
-3. Input protection that engages current limiting to 10 mA (typical, max: 15 mA) at a differential voltage of 2 V for protection against accidentally connecting up to 100V across the terminals. A GDT is included to provide transient protection against higher voltages.
-4. Two input ranges: +/-2 mV and +/-20 mV.
-5. Reduced power consumption (with LTC6655)
+其他功能包括:
+1. 提供两种电压基准的封装选项: 采用ADR1399可实现最低噪声/最高稳定性，选用LTC6655则能降低功耗
+2. 一个光耦隔离的外部触发输入接口，例如可用于将时钟同步至市电周期。
+3. 输入保护功能在差分电压达2V时启动限流(典型值10mA，最大值15mA)，可防止端子意外接入100V电压时受损。电路同时配备气体放电管(GDT)，为更高电压的瞬态冲击提供防护。
+4. 两个输入量程：±2 mV 与 ±20 mV。
+5. (采用LTC6655时)功耗降低
 
-Principle of Operation
+工作原理
 ----------------------
 
 <img width="1753" alt="SimplifiedSchematic" src="https://github.com/curtisseizert/Nanovoltmeter/assets/22351001/f38c8695-773f-48de-b3a6-2627330c2b3a">
