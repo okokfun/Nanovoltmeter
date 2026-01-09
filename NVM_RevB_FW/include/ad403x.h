@@ -1,5 +1,4 @@
-	
-	/* DRIVER HEADER FOR AD403x in NVM */
+// DRIVER HEADER FOR AD403x in NVM
 	
 #ifndef AD403X_H_
 #define AD403X_H_
@@ -11,7 +10,7 @@
 #include "gpio.h"
 
 
-	/* REGISTER ADDRESSES */
+/* REGISTER ADDRESSES */
 #define AD403X_REG_INTERFACE_CONFIG_A			0x00
 #define AD403X_REG_INTERFACE_CONFIG_B			0x01
 #define AD403X_REG_DEVICE_CONFIG				0x02
@@ -112,12 +111,10 @@
 /* NVM-SPECIFIC DEFINES */
 #define AD403X_DEFAULT_MODE						(AD403X_ONE_LANE | AD403X_30_AVERAGED_DIFF)
 
-
 typedef struct{
 	SPI_TypeDef * spi;
 	Pin_t * ncs_pin;
 	Pin_t * nreset_pin;
-
 }AD403X_t;
 
 void ad403x_reset(const AD403X_t * adc);
@@ -127,6 +124,5 @@ void ad403x_write_register(const AD403X_t * adc, uint16_t addr, uint8_t value);
 void ad403x_WriteRegisterSingle(const AD403X_t * adc, uint16_t addr, uint8_t value);
 uint8_t ad403x_read_register(const AD403X_t * adc, uint16_t addr);
 uint8_t ad403x_read_register_single(const AD403X_t * adc, uint16_t addr);
-
 
 #endif // AD4030_H_
