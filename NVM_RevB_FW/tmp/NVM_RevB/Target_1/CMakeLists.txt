@@ -3,7 +3,6 @@
 cmake_minimum_required(VERSION 3.22)
 
 # Target options
-
 set(TARGET NVM_RevB)
 set(CPU Cortex-M33)
 set(PRJ_DIR "c:/Users/Curtis/Documents/Electronics/Projects/NVM_RevB_2")
@@ -63,7 +62,6 @@ set(CC_SRC_FILES
 )
 
 # Toolchain config map
-
 set(REGISTERED_TOOLCHAIN_ROOT "c:/Users/Curtis/.vcpkg/artifacts/fd3d78d7/compilers.arm.armclang/6.21.0/bin")
 set(REGISTERED_TOOLCHAIN_VERSION "6.21.0")
 set(TOOLCHAIN_VERSION_MIN "6.21.0")
@@ -71,31 +69,26 @@ include ("C:/Users/Curtis/.vcpkg/artifacts/fd3d78d7/tools.open.cmsis.pack.cmsis.
 include ("C:/Users/Curtis/.vcpkg/artifacts/fd3d78d7/tools.open.cmsis.pack.cmsis.toolbox/2.2.1/etc/CMSIS-Build-Utils.cmake")
 
 # Setup project
-
 project(${TARGET} LANGUAGES AS_ARM C)
 
 cbuild_get_running_toolchain(TOOLCHAIN_ROOT TOOLCHAIN_VERSION C)
 
 # Global Flags
-
 set(CMAKE_AS_ARM_FLAGS "${AS_ARM_CPU} ${AS_ARM_BYTE_ORDER} ${AS_ARM_DEFINES} ${AS_ARM_OPTIONS_FLAGS} ${AS_ARM_FLAGS} ${AS_FLAGS_GLOBAL}")
 cbuild_get_system_includes(CC_SYS_INC_PATHS_LIST CC_SYS_INC_PATHS)
 set(CMAKE_C_FLAGS "${CC_CPU} ${CC_BYTE_ORDER} ${CC_DEFINES} ${CC_SECURE} ${CC_OPTIONS_FLAGS} ${CC_FLAGS} ${CC_FLAGS_GLOBAL} ${CC_SYS_INC_PATHS}")
 set(CMAKE_C_LINK_FLAGS "${LD_CPU} ${_LS}\"${LD_SCRIPT}\" ${LD_SECURE} ${LD_FLAGS_GLOBAL} ${LD_OPTIONS_FLAGS} ${LD_FLAGS}")
 
 # Local Flags
-
 foreach(SRC ${AS_ARM_SRC_FILES})
   set_source_files_properties(${SRC} PROPERTIES LANGUAGE AS_ARM)
 endforeach()
 
 # Compilation Database
-
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_custom_target(database COMMAND ${CMAKE_COMMAND} -E copy_if_different "${INT_DIR}/compile_commands.json" "${OUT_DIR}")
 
 # Setup Target
-
 add_executable(${TARGET} ${AS_ARM_SRC_FILES} ${CC_SRC_FILES})
 set_target_properties(${TARGET} PROPERTIES PREFIX "" SUFFIX ".axf" OUTPUT_NAME "NVM_RevB")
 set_target_properties(${TARGET} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${OUT_DIR} LINK_DEPENDS ${LD_SCRIPT})
