@@ -8,7 +8,7 @@
 #include "stm32u5xx.h"
 #include "stm32u575xx.h"
 
-#define TMP117_REG_TEMP    0x00
+#define TMP117_REG_TEMP     0x00
 #define TMP117_REG_CONFIG			  0x01
 #define TMP117_REG_HIGH_LIM		0x02
 #define TMP117_REG_LOW_LIM		  0x03
