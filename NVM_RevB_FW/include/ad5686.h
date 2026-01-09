@@ -1,5 +1,4 @@
-/*Basic driver for AD5686 in NVM Rev B
-	*/
+// asic driver for AD5686 in NVM Rev B
 
 #ifndef AD5686_H_
 #define AD5686_H_
