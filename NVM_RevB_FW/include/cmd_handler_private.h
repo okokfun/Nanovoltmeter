@@ -1,4 +1,4 @@
-    /* cmd_handler_private.h */
+/* cmd_handler_private.h */
 
 #ifndef CMD_HANDLER_PRIVATE_H_
 #define CMD_HANDLER_PRIVATE_H_
@@ -32,7 +32,7 @@
 #define CMD_MEAS_READ           0x44414552   // READ (q)
 #define CMD_MEAS_FETC           0x43544546   // FETCh (q)
 
-    // MEASure:CONFigure:... commands
+// MEASure:CONFigure:... commands
 #define CMD_MODF                0x46444f4d   // Modulator Frequency
 #define CMD_AVG                 0x00475641   // Modulator cycles per average
 #define CMD_DFRE                0x45524644   // DAC Update Frequency
