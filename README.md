@@ -8,7 +8,7 @@
 4. 一块带电池充电器的后面板电路板
 5. 一块前面板
 
-This repository will also include the source code for the STM32U575 microcontroller that interfaces with the various peripherals.
+此代码库还将包含STM32U575微控制器的源代码，该控制器用于连接各类外围设备。
 
 ![ADR1399-boardfront](https://github.com/curtisseizert/Nanovoltmeter/assets/22351001/9ea7e242-64c5-4fc7-a24f-2e9ce9876d46)
 ![ADR1399-boardrear](https://github.com/curtisseizert/Nanovoltmeter/assets/22351001/88aedb9b-be14-4447-87e4-bf99c72b94a3)
