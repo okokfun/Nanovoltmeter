@@ -102,7 +102,6 @@ typedef struct{
 	uint16_t sinc_order;
 
 	GainState_t gain_state;
-	
 }AcqParam_t;
 
 typedef enum{
