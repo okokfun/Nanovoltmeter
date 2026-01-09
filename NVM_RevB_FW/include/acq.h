@@ -1,6 +1,6 @@
-	/** acq.h
-	 * 	Header file for high-level acquisition functions for NVM Rev B
-	*/
+/** acq.h
+ * 	Header file for high-level acquisition functions for NVM Rev B
+ */
 
 #ifndef ACQ_H_
 #define ACQ_H_
