@@ -29,8 +29,7 @@ extern DmaNode_t dma_ch4_node;
 
 extern uint32_t dac_data[2];
 
-
-	/* DMA Linked-List Convenience Functions*/
+/* DMA Linked-List Convenience Functions*/
 void dma_append_node(DmaNode_t * node, const DmaNode_t * next_node);
 void dma_set_base_lli_addr(DMA_Channel_TypeDef * dma, const DmaNode_t * node);
 void dma_set_next_node(DMA_Channel_TypeDef * dma, const DmaNode_t * node);
