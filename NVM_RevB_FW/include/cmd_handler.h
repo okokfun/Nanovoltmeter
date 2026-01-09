@@ -1,4 +1,3 @@
-
 #ifndef CMD_HANDLER_H_
 #define CMD_HANDLER_H_
 
@@ -10,8 +9,6 @@
      * about the node and a paranthetical notation of whether it can be
      * a command (c) or query (q). If there is no c or q, then it is not
      * a terminal node */
-
-
 
 CmdErr command_handler(CmdString_t * cmd);
 
