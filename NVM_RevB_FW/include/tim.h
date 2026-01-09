@@ -50,7 +50,6 @@ void stop_lp_timer(LPTIM_TypeDef * lptim);
 
 void tim1_init(void);
 
-
 void tim8_init(void);
 
 void tim15_init(void);
@@ -64,6 +63,5 @@ void tim7_init(void); // For debugging
 
 void delay_us(uint16_t us);
 void delay_ms(uint16_t ms);
-
 
 #endif // TIM_H_
