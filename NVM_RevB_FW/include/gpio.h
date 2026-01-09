@@ -1,11 +1,8 @@
-
 #ifndef GPIO_H_
 #define GPIO_H_
 
 #include "stm32u5xx.h"
 #include "stm32u575xx.h"
-
-		
 
 typedef enum{
 	GPIO_PORT_A = 0U,
