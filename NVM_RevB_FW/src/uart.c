@@ -1,8 +1,5 @@
-
 #include "uart.h"
 #include "dma.h"
-
-
 
 void USART3DisableDMATx(void)
 {
