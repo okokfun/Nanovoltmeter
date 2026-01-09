@@ -1,5 +1,3 @@
-
-
 #ifndef SPI_H_
 #define SPI_H_
 
@@ -7,8 +5,7 @@
 #include "stm32u575xx.h"
 #include "gpio.h"
 
-
-	/* SPI PARAMETER DEFINES */
+/* SPI PARAMETER DEFINES */
 	
 #define SPI1_PSC							1U
 #define SPI2_PSC							1U
@@ -41,6 +38,5 @@ void spi_transmit_one(SPI_TypeDef * spi, uint32_t * data);
 uint32_t spi_receive_one(SPI_TypeDef * spi);
 uint32_t spi_transmit_receive_one(SPI_TypeDef * spi, uint32_t * data);
 void spi_start(SPI_TypeDef * spi);
-
 
 #endif // SPI_H_
