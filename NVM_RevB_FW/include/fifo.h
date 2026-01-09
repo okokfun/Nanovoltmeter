@@ -1,5 +1,3 @@
-
-
 #ifndef FIFO_H_
 #define FIFO_H_
 
@@ -23,7 +21,6 @@ typedef struct{
 	uint8_t data_reqd;
 	uint8_t data_written;
 }FIFO_t;
-
 
 /// @brief Typedef of the possible FIFO errors
 /// @note FIFO_STATUS_OK: No error
