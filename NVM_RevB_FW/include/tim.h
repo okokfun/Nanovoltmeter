@@ -9,13 +9,13 @@
 *
 * TIM1: Trigger clock using ETR2
 *
-*	TIM2: modulator clocks, combined PWM mode
+* TIM2: modulator clocks, combined PWM mode
 *				master mode to trigger TIM3, TIM4, and TIM5
 *
-*	TIM3: demodulator clocks, combined PWM mode
+* TIM3: demodulator clocks, combined PWM mode
 *				sync to TIM2
 *
-*	TIM4: ADC CDS clocks, PWM mode
+* TIM4: ADC CDS clocks, PWM mode
 *
 * TIM5: Trigger to start conversions
 *				ARR = TIM2->ARR / 2, OCR = settling time
