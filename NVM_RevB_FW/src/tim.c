@@ -1,8 +1,5 @@
-
-
 #include "tim.h"
 #include "gpio.h"
-
 
 void enable_timer(TIM_TypeDef * tim)
 {
