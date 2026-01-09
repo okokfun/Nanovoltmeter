@@ -1,4 +1,3 @@
-
 #ifndef DAC_H_
 #define DAC_H_
 
@@ -10,6 +9,5 @@
 
 void DACInit(void);
 void dac_write_code(uint16_t code);
-
 
 #endif // DAC_H_
