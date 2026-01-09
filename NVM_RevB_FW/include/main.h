@@ -1,8 +1,8 @@
 /**
-	*	main.h
-	*	main header file
-	*
-	*/
+*	main.h
+*	main header file
+*
+*/
 
 #ifndef MAIN_H_
 #define MAIN_H_
