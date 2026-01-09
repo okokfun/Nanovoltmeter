@@ -15,9 +15,7 @@
 
 #define USART3_BAUD				1500000
 
-
-
-    /*  PIN DECLARATIONS  */
+/*  PIN DECLARATIONS  */
 // Relay Control Pins
 extern const Pin_t K1_S;               
 extern const Pin_t K2_S;              
