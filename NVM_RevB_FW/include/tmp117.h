@@ -50,10 +50,10 @@
 
 typedef struct __TMP117_Handle_TypeDef
 {
-I2C_TypeDef * i2c;
-uint16_t code;
-uint8_t addr;
-uint8_t flags;
+    I2C_TypeDef * i2c;
+    uint16_t code;
+    uint8_t addr;
+    uint8_t flags;
 } TMP117_t;
 
 
