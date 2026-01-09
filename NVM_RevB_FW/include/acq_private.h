@@ -1,7 +1,5 @@
-
-
-    /* acq_private.h */
-    /* Header for static declarations defined in acq.c */
+/* acq_private.h */
+/* Header for static declarations defined in acq.c */
 
 #ifndef ACQ_PRIVATE_H_
 #define ACQ_PRIVATE_H_
