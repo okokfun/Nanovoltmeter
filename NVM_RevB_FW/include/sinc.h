@@ -1,6 +1,3 @@
-
-
-
 #ifndef SINC_H_
 #define SINC_H_
 
