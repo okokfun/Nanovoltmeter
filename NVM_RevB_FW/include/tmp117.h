@@ -50,10 +50,10 @@
 
 typedef struct __TMP117_Handle_TypeDef
 {
-	I2C_TypeDef * i2c;
-	uint16_t code;
-	uint8_t addr;
-	uint8_t flags;
+I2C_TypeDef * i2c;
+uint16_t code;
+uint8_t addr;
+uint8_t flags;
 } TMP117_t;
 
 
@@ -64,8 +64,7 @@ int16_t tmp117_read_register(TMP117_t * tmp117, uint8_t reg);
 float tmp117_get_temp(TMP117_t * tmp117);
 
 float tmp117_code_to_temperature(int16_t code);
-void TMP117nextData(TMP117_t * tmp117);
-
+void TMP117nextData(TMP117_t * tmp117);
 
 void TMP117SetupDMA(void);
 void DMA_CH3_LLIinit(void);
