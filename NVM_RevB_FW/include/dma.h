@@ -1,4 +1,3 @@
-
 #ifndef DMA_H_
 #define DMA_H_
 
@@ -6,9 +5,8 @@
 #include "stm32u575xx.h"
 #include "gpio.h"
 
-
-	/* DMA Linked-List Containers */
-	// Note that only fully defined nodes are supported 
+/* DMA Linked-List Containers */
+// Note that only fully defined nodes are supported 
 typedef struct 
 {
 	uint32_t CTR1;
