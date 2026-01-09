@@ -1,5 +1,5 @@
 
-    /*  tmp117.h    */
+/*  tmp117.h   */
 
 #ifndef TMP117_H_
 #define TMP117_H_
