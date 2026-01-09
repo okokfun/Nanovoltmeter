@@ -1,4 +1,3 @@
-
 /*  tmp117.h   */
 
 #ifndef TMP117_H_
