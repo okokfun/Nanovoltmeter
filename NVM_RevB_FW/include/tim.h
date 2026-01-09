@@ -21,11 +21,11 @@
 *				ARR = TIM2->ARR / 2, OCR = settling time
 *				OC1REF -> TRG0 -> Triggers TIM8
 *	
-*	TIM6: GP timer to e.g. time relay pulses
+* TIM6: GP timer to e.g. time relay pulses
 *				PSC set so 1 count = 1 us
 *				One-pulse mode
 *
-*	TIM7: GP timer to e.g. time relay pulses, nonblocking
+* TIM7: GP timer to e.g. time relay pulses, nonblocking
 *				PSC set so 1 count = 1 us
 *				One-pulse mode
 *
@@ -33,7 +33,7 @@
 *				One pulse mode
 *				Triggered by TIM5
 *
-*	TIM15: Synchronizes indexing of output data array
+* TIM15: Synchronizes indexing of output data array
 *				Clocked by TIM4
 *				Generates interrupt at UE to reset index counter
 *				ISR processes data, triggers output via UART4
