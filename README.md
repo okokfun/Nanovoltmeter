@@ -77,6 +77,8 @@
 放大器的线性度预期会相当出色，因为失调校正回路能使前端放大器的输入端电压保持一致，与输入信号无关。非线性的主要来源应为增益设定电阻——功耗增加导致的温度变化可能改变电阻比例及前端增益。为测试放大器线性度，我采用基于LTZ1000A和DAC11001B构建的高精度源(经测试线性误差小于2ppm)，并配合200K/20R分压器将输出电压范围降至0至1mV。通过对该范围内多次11点扫频测量结果取平均，得到最大线性误差为1.5ppm。由于外接设备接入前面板时会引入额外噪声，取平均处理是必要的。较低增益的±20mV量程对外部噪声源更敏感(可能源于放大器在低增益下稳定性降低)，导致该量程的线性度误差评估不具备实际可行性。在所有外部信号源测量中，我发现将测试引线绕在纳米晶磁环上可显著降低噪声，此为最优处理方案。
 
 <img width="2680" height="1569" alt="LinearitySweep" src="https://github.com/user-attachments/assets/795f5279-375e-4419-a274-6ec6c7499851" />
+
+外部测量时的性能下降
 -------------------------------------------------
 
 Taken together, my observations about the difficulty of performing measurements with external sources are difficult to untangle and may point to multiple simultaneous issues. I have collected them here to try to provide some insight into this behavior and possible solutions:
