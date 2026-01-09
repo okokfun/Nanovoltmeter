@@ -13,17 +13,17 @@
 ![ADR1399-boardfront](https://github.com/curtisseizert/Nanovoltmeter/assets/22351001/9ea7e242-64c5-4fc7-a24f-2e9ce9876d46)
 ![ADR1399-boardrear](https://github.com/curtisseizert/Nanovoltmeter/assets/22351001/88aedb9b-be14-4447-87e4-bf99c72b94a3)
 
-Note: The current revision of the board does not work without modifications, but the schematic has been annotated to include these. This project should still be considered in a development state, but the entirety of the design is provided here for anyone seeking to draw upon this work in low-noise, high-resolution voltage sensing projects.
+注意: 当前版本的电路板未经修改无法正常工作，但原理图中已添加注释说明所需修改。本项目仍应视为处于开发阶段，但此处提供了完整的设计资料，以供从事低噪声、高分辨率电压传感项目的研究者参考使用。
 
-Curent Status
+当前状态
 -------------
-A revision C to the board is in a stage of occasional development as I finish another project. The new revision will seek to improve the robustness of the design, addressing issues such as the apparent sensitivity to common-mode noise, inadequate power protection leading to cascade failures with certain faults, and minor drift related to battery discharge. I am looking into an improved method of retrieving SPI data from ADC conversions that should allow operation at the maximum sample rate of the AD4030-24 (2 MSPS), to reduce noise and reduce the possibility of aliasing. The revision also includes a minor redesign of the key frontend amplifier to improve gain and stability. The ADR1399 reference option will be removed from this revision.
+由于我当前正在完成另一项目，电路板的C修订版正处于间歇性开发阶段。新版设计将着力提升系统的稳健性，重点解决以下问题：对共模噪声的明显敏感性、电源保护不足导致特定故障时的级联失效，以及与电池放电相关的轻微漂移现象。我正在研究改进从ADC转换中获取SPI数据的方法，旨在实现AD4030-24芯片的最大采样率(2 MSPS)，以降低噪声并减少混叠可能性。本次修订还包括对关键前端放大器的微调设计，以提升增益和稳定性。此外，新版将取消ADR1399基准电压源选项。
 
-Version 2.0 of the FW improves handling of results and user inputs, as well as reduces the load on the CPU by making better use of DMA. Unit testing is ongoing and some features are not yet implemented, but they will be coming soon. The command structure uses a SCPI-like syntax but is not fully SCPI-compliant. The improved FW should facilitate more performance testing.
+固件2.0版本优化了数据处理与用户输入的交互逻辑，并通过增强DMA利用率降低了CPU负载。单元测试正在进行中，部分功能尚未完全实现，但即将陆续发布。该版本采用类SCPI语法构建命令体系，虽未完全遵循SCPI规范，但升级后的固件将更有利于开展系统性能测试工作。
 
-I have built two of these boards, one with an LTC6655 reference, the other with an ADR1399. I have tested the noise and offset performance of the latter both with internal shorts and an external 1 mV reference. Getting both boards to work has required some changes, and I have made the appropriate edits to a revision C schematic though I have not laid this out. The noise and temperature sensitivity of the LTC6655 board is superior for internal shorts. 
+我已制作了两块此类电路板：一块采用LTC6655基准源，另一块采用ADR1399基准源。针对ADR1399版本，我通过内部短路和外部1 mV基准信号对其噪声与偏移性能进行了测试。为使两块电路板正常工作均需进行若干修改，我已在C修订版原理图中进行了相应调整(但尚未完成版图设计)。在内部短路测试条件下，采用LTC6655基准源的电路板展现出更优异的噪声性能与温度稳定性。
 
-Design Background
+设计背景
 -----------------
 
 A proof of concept model of the input stage was previously prepared, which showed a flat NSD of approximately 1.2 nV/sqrt(Hz). At 1 sample per second, the peak to peak noise was about 15 nV. The temperature coefficient of the meter was approximately 1 nV/K, but sensitivity to temperature fluctuations was evident and the change in power dissipation as the battery discharged led to a drift of ca. 1 nV/h. This prototype also had a bias current of ~3 nA due to charge injection from the input modulator switch. This revision seeks to change those issues as follows:
