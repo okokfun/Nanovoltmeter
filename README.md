@@ -26,7 +26,7 @@
 设计背景
 -----------------
 
-A proof of concept model of the input stage was previously prepared, which showed a flat NSD of approximately 1.2 nV/sqrt(Hz). At 1 sample per second, the peak to peak noise was about 15 nV. The temperature coefficient of the meter was approximately 1 nV/K, but sensitivity to temperature fluctuations was evident and the change in power dissipation as the battery discharged led to a drift of ca. 1 nV/h. This prototype also had a bias current of ~3 nA due to charge injection from the input modulator switch. This revision seeks to change those issues as follows:
+此前已构建的输入级概念验证模型显示，其噪声谱密度(NSD)在约$1.2 nV/\sqrt{Hz}$水平保持平坦。在每秒1次采样的条件下，峰峰值噪声约为 15nV。该仪表的温度系数约为1 nV/K，但对温度波动的敏感性较为明显，且电池放电过程中功耗变化导致约 1nV/小时的漂移。此原型机还因输入调制器开关的电荷注入效应存在约 3nA 的偏置电流。本修订版本拟针对这些问题进行如下改进：
 
 1. The main power rails of the board are generated using low noise buck converters (LT8608S) and a Cuk converter on a shielded daughterboard so that the dropout of the on-board LDOs remains consistent through battery discharge
 2. Improved layout reduced sensitivity to temperature changes. The input stage is contained in a shielding enclosure and is surrounded by isolation slots. Additionally, the largest power dissipators have been placed outside this shield on opposite sides.
