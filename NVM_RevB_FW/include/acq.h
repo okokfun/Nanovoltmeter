@@ -49,7 +49,7 @@ typedef struct{
 	uint16_t index;
 	uint16_t bufsize;
 	int16_t phase[2];		// phase[1] gets copied to phase[0] when block
-							// is processed
+// is processed
 }AD403XData_t;
 
 typedef struct{
