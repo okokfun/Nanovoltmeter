@@ -1,12 +1,12 @@
 # 纳伏电压表
 低噪声纳伏表设计文件与代码
 
-The design includes five boards:
-1. The nanovoltmeter main board
-2. A SMPS daughter board to downconvert the battery voltage to the various power rails used in the design
-3. A battery board with BMS for 4S 21700 cells
-4. A rear panel board with battery charger
-5. A front panel
+该设计包含五块电路板:
+1. 纳伏表主板
+2. 一块开关电源子板(SMPS)，用于将电池电压降压至设计中使用的多种电源轨电压
+3. 一块配备电池管理系统(BMS)的电池板，适用于4串21700电池组
+4. 一块带电池充电器的后面板电路板
+5. 一块前面板
 
 This repository will also include the source code for the STM32U575 microcontroller that interfaces with the various peripherals.
 
