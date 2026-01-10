@@ -69,7 +69,7 @@
 <img width="3249" height="2311" alt="ShortNoise_LTC6655_sinc1" src="https://github.com/user-attachments/assets/1055977f-d3ce-460c-9226-e360cdb6e724" />
 <img width="3249" height="2311" alt="ShortNoise_LTC6655_sinc2" src="https://github.com/user-attachments/assets/e779fb28-2be0-43f0-8d62-cbfe5655bbc9" />
 
-尽管该纳伏表具有小于1nV/K的失调温度系数，但其对温度变化速率仍表现出一定敏感性(即失调电压与温度对时间的二阶导数相关)。这种现象是合理的，因为温度变化速率会改变电路板上的温度梯度分布，进而影响输入端的寄生热电偶效应。此外，电源在较低输入电压下效率略高，导致电池放电时散热减少，这也对失调电压产生影响。在长时间采集过程中(如下方展示的LTC6655基准源示例)，这会引起小于0.1nV/小时的漂移。值得注意的是，在输入温度波动约2.5K的100小时采集周期内，整体漂移仅约8 nV。
+尽管该纳伏表具有小于1nV/K的失调温度系数，但其对温度变化速率仍表现出一定敏感性(即失调电压与温度对时间的二阶导数相关)。这种现象是合理的，因为温度变化速率会改变电路板上的温度梯度分布，进而影响输入端的寄生热电偶效应。此外，电源在较低输入电压下效率略高，导致电池放电时散热减少，这也对失调电压产生影响。在长时间采集过程中(如下方展示的LTC6655基准源示例)，这会引起小于0.1nV/小时的漂移。值得注意的是，在输入温度波动约2.5K的100小时采集周期内，整体漂移仅约8nV。
 
 <img width="3540" height="2340" alt="LongCapture_LTC6655_0p01SPS_sinc2" src="https://github.com/user-attachments/assets/bc8703da-5e35-4ad9-97cf-4228a2d44c8a" />
 <img width="3540" height="2340" alt="LongCapture_ADR1399_0p01SPS" src="https://github.com/user-attachments/assets/30137af6-4506-4fc8-9191-a88c3c338448" />
